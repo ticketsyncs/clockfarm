@@ -1,7 +1,7 @@
 # Ticket-Harvest-Sync
 
-![Jira Logo](jira.svg)
-![Alarm Clock Logo](alarm.svg)
+<img alt="Jira logo" src="jira.svg" width="92px"/>
+<img alt="Alarm logo" src="alarm.svg" width="92px"/>
 
 [![DevOps By Rultor.com](https://www.rultor.com/b/yegor256/rultor)](https://www.rultor.com/p/yegor256/rultor)
 [![We recommend IntelliJ IDEA](https://www.elegantobjects.org/intellij-idea.svg)](https://www.jetbrains.com/idea/)
