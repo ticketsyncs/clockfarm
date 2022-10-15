@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: harvest-synchronization
+server:
+  shutdown: graceful
+  port: 8011
+logging:
+  level:
+    root: INFO
+    web: DEBUG
+  file:
+    path: /
+    name: harvest-synchronization.log
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+      base-path: /system
+jira:
+  domain: ${JIRA_DOMAIN}
+  username: ${JIRA_USERNAME}
+  token: ${JIRA_TOKEN}
