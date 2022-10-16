@@ -21,6 +21,6 @@ management:
         include: '*'
       base-path: /system
 jira:
-  domain: ${JIRA_DOMAIN}
-  username: ${JIRA_USERNAME}
-  token: ${JIRA_TOKEN}
+  domain: https://usko-incorporated.atlassian.net
+  username: abialiauski@uskoinc.com
+  token: zTErdw09R9vMvqS0JrE7D44A
