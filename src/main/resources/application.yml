@@ -23,4 +23,5 @@ management:
 jira:
   domain: https://usko-incorporated.atlassian.net
   username: abialiauski@uskoinc.com
-  token: zTErdw09R9vMvqS0JrE7D44A
+#  token: zTErdw09R9vMvqS0JrE7D44A
+  token: My4hWPICrAZUheI0OulXA39B
