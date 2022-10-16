@@ -19,15 +19,15 @@ public class JiraConfiguration {
   private String domain;
   @Value("${jira.username}")
   private String username;
-  @Value("${jira.token}")
+//  @Value("${jira.token}")
   private String token;
 
-  @Bean
-  public JiraRestClient restClient() {
-    System.out.println(token);
-    return new AsynchronousJiraRestClientFactory()
-        .createWithBasicHttpAuthentication(URI.create(this.domain),
-            this.username, this.token
-        );
-  }
+//  @Bean
+//  public JiraRestClient restClient() {
+//    System.out.println(token);
+//    return new AsynchronousJiraRestClientFactory()
+//        .createWithBasicHttpAuthentication(URI.create(this.domain),
+//            this.username, token
+//        );
+//  }
 }
