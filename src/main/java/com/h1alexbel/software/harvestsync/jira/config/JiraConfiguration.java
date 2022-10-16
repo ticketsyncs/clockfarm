@@ -24,6 +24,7 @@ public class JiraConfiguration {
 
   @Bean
   public JiraRestClient restClient() {
+    System.out.println(token);
     return new AsynchronousJiraRestClientFactory()
         .createWithBasicHttpAuthentication(URI.create(this.domain),
             this.username, this.token
