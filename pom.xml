@@ -8,16 +8,54 @@
         <version>2.7.5</version>
         <relativePath/>
     </parent>
-    <groupId>com.h1alexbel.software</groupId>
+    <groupId>com.ticketsyncs</groupId>
     <artifactId>ticketsyncs</artifactId>
     <version>0.0.1</version>
+    <inceptionYear>2022</inceptionYear>
+    <developers>
+        <developer>
+            <id>1</id>
+            <name>Aliaksei Bialiauski</name>
+            <email>abialiauski.dev@gmail.com</email>
+            <url>h1alexbel.github.io</url>
+            <roles>
+                <role>Architect</role>
+                <role>Developer</role>
+            </roles>
+        </developer>
+    </developers>
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/h1alexbel/ticketsyncs/issues</url>
+    </issueManagement>
+    <licenses>
+        <license>
+            <name>MIT</name>
+            <url>https://github.com/h1alexbel/ticketsyncs/blob/master/LICENSE.txt</url>
+            <distribution>site</distribution>
+        </license>
+    </licenses>
     <properties>
         <java.version>11</java.version>
     </properties>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.cactoos</groupId>
+            <artifactId>cactoos</artifactId>
+            <version>0.54.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jcabi</groupId>
+            <artifactId>jcabi-github</artifactId>
+            <version>1.3.2</version>
         </dependency>
         <dependency>
             <groupId>com.atlassian.jira</groupId>
@@ -31,10 +69,6 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-webflux</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
@@ -42,11 +76,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.projectreactor</groupId>
-            <artifactId>reactor-test</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>
