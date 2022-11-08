@@ -8,7 +8,7 @@
         <version>2.7.5</version>
         <relativePath/>
     </parent>
-    <groupId>com.ticketsyncs</groupId>
+    <groupId>com.h1alexbel</groupId>
     <artifactId>ticketsyncs</artifactId>
     <version>0.0.1</version>
     <inceptionYear>2022</inceptionYear>
