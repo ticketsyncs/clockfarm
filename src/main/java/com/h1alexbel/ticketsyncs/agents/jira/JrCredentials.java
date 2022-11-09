@@ -1,13 +1,11 @@
 package com.h1alexbel.ticketsyncs.agents.jira;
 
 import com.h1alexbel.ticketsyncs.model.Credentials;
-import org.springframework.stereotype.Component;
 
 /**
  * @author Aliaksei Bialiauski (abialiauski@solvd.com)
  * @since 1.0
  */
-@Component
 public final class JrCredentials implements Credentials {
 
   private String project;

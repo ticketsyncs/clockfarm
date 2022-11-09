@@ -7,13 +7,11 @@ import com.h1alexbel.ticketsyncs.model.Ticket;
 import com.h1alexbel.ticketsyncs.model.Tickets;
 import java.net.URI;
 import java.util.concurrent.ExecutionException;
-import org.springframework.stereotype.Component;
 
 /**
  * @author Aliaksei Bialiauski (abialiauski@solvd.com)
  * @since 1.0
  */
-@Component
 public final class JrTickets implements Tickets<String> {
 
   private final JiraRestClient client;
