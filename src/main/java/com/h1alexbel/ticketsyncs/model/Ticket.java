@@ -6,5 +6,5 @@ package com.h1alexbel.ticketsyncs.model;
  */
 public interface Ticket {
 
-  SpentTimeInHours spentHours();
+  Double spentHours();
 }
