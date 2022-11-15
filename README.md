@@ -5,7 +5,7 @@
 [![We recommend IntelliJ IDEA](https://www.elegantobjects.org/intellij-idea.svg)](https://www.jetbrains.com/idea/)
 
 
-[![Java CI with Maven](https://github.com/ticketsync/clockfarm/actions/workflows/maven.yml/badge.svg)](https://github.com/ticketsyncs/clockfarm/actions/workflows/maven.yml)
+[![Java CI with Maven](https://github.com/ticketsyncs/clockfarm/actions/workflows/maven.yml/badge.svg)](https://github.com/ticketsyncs/clockfarm/actions/workflows/maven.yml)
 [![Hits-of-Code](https://hitsofcode.com/github/h1alexbel/ticket-harvest-sync)](https://hitsofcode.com/view/github/h1alexbel/ticket-harvest-sync)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/ticketsyncs/clockfarm/blob/master/LICENSE)
 
