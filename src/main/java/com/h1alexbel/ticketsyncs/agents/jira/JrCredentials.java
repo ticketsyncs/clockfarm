@@ -1,6 +1,7 @@
 package com.h1alexbel.ticketsyncs.agents.jira;
 
 import com.h1alexbel.ticketsyncs.model.Credentials;
+import java.net.URI;
 
 /**
  * @author Aliaksei Bialiauski (abialiauski@solvd.com)
@@ -8,31 +9,19 @@ import com.h1alexbel.ticketsyncs.model.Credentials;
  */
 public final class JrCredentials implements Credentials {
 
-  private String project;
-  private String username;
-  private String password;
+  private final String project;
+  private final String username;
+  private final String password;
 
-  @Override
-  public Credentials withProject(final String project) {
+  public JrCredentials(final String project, final String username, final String password) {
     this.project = project;
-    return this;
-  }
-
-  @Override
-  public Credentials withUsername(final String username) {
     this.username = username;
-    return this;
-  }
-
-  @Override
-  public Credentials withPassword(final String password) {
     this.password = password;
-    return this;
   }
 
   @Override
-  public String project() {
-    return this.project;
+  public URI domainURI() {
+    return URI.create(this.project);
   }
 
   @Override
