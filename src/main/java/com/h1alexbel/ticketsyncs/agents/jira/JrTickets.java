@@ -5,7 +5,6 @@ import com.atlassian.jira.rest.client.internal.async.AsynchronousJiraRestClientF
 import com.h1alexbel.ticketsyncs.model.Credentials;
 import com.h1alexbel.ticketsyncs.model.Ticket;
 import com.h1alexbel.ticketsyncs.model.Tickets;
-import java.net.URI;
 import java.util.concurrent.ExecutionException;
 
 /**
@@ -18,7 +17,7 @@ public final class JrTickets implements Tickets<String> {
 
   public JrTickets(final Credentials creds) {
     this.client = new AsynchronousJiraRestClientFactory()
-        .createWithBasicHttpAuthentication(URI.create(creds.password()), creds.username(),
+        .createWithBasicHttpAuthentication(creds.domainURI(), creds.username(),
             creds.password()
         );
   }
