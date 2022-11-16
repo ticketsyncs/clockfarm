@@ -28,4 +28,4 @@ SOFTWARE.
  * @since 1.0
  */
 
-package com.h1alexbel.ticketsyncs;
+package com.ticketsyncs.clockfarm;

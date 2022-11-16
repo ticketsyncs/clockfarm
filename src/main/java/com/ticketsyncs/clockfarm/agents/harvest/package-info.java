@@ -23,9 +23,9 @@ SOFTWARE.
  */
 
 /**
- * Agents.
+ * Harvest.
  * @author Aliaksei Bialiauski (abialiauski@solvd.com)
  * @since 1.0
  */
 
-package com.h1alexbel.ticketsyncs.agents;
+package com.ticketsyncs.clockfarm.agents.harvest;

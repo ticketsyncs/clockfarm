@@ -23,9 +23,9 @@ SOFTWARE.
  */
 
 /**
- * Jira.
+ * Agents.
  * @author Aliaksei Bialiauski (abialiauski@solvd.com)
  * @since 1.0
  */
 
-package com.h1alexbel.ticketsyncs.agents.jira;
+package com.ticketsyncs.clockfarm.agents;

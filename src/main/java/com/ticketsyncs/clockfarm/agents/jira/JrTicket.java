@@ -1,7 +1,7 @@
-package com.h1alexbel.ticketsyncs.agents.jira;
+package com.ticketsyncs.clockfarm.agents.jira;
 
 import com.atlassian.jira.rest.client.api.domain.Issue;
-import com.h1alexbel.ticketsyncs.model.Ticket;
+import com.ticketsyncs.clockfarm.model.Ticket;
 import java.util.Objects;
 
 /**

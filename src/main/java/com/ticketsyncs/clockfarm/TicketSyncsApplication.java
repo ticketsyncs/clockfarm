@@ -1,4 +1,4 @@
-package com.h1alexbel.ticketsyncs;
+package com.ticketsyncs.clockfarm;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
