@@ -1,6 +1,6 @@
-package com.h1alexbel.ticketsyncs.agents.jira;
+package com.ticketsyncs.clockfarm.agents.jira;
 
-import com.h1alexbel.ticketsyncs.model.Credentials;
+import com.ticketsyncs.clockfarm.model.Credentials;
 import java.net.URI;
 
 /**

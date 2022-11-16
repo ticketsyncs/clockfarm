@@ -1,4 +1,4 @@
-package com.h1alexbel.ticketsyncs.model;
+package com.ticketsyncs.clockfarm.model;
 
 /**
  * @author Aliaksei Bialiauski (abialiauski@solvd.com)
