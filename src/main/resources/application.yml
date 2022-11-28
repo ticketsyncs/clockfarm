@@ -1,16 +1,29 @@
 spring:
   application:
-    name: harvest-synchronization
+    name: ticketsyncs
+  liquibase:
+    url: jdbc:postgresql://localhost:5432/postgres
+    user: postgres
+    password: pass
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/postgres
+    # REPLACE WITH ${DB_URL}
+    username: postgres
+    # REPLACE WITH ${DB_USERNAME}
+    password: pass
+    # REPLACE WITH ${DB_PASSWORD}
 server:
   shutdown: graceful
-  port: 8011
+  port: 8081
+#  REPLACE WITH ${PORT}
 logging:
   level:
     root: INFO
     web: DEBUG
+    org.springframework.r2dbc: DEBUG
   file:
     path: /
-    name: harvest-synchronization.log
+    name: ticketsyncs.log
 management:
   endpoint:
     health:
@@ -20,6 +33,3 @@ management:
       exposure:
         include: '*'
       base-path: /system
-jira:
-  domain: https://usko-incorporated.atlassian.net
-  username: abialiauski@uskoinc.com

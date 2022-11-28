@@ -6,9 +6,9 @@ import java.net.URI;
  * @author Aliaksei Bialiauski (abialiauski@solvd.com)
  * @since 1.0
  */
-public interface Credentials {
+public interface Credentials<K> extends WithId<K> {
 
-  URI domainURI();
+  URI uri();
 
   String username();
 

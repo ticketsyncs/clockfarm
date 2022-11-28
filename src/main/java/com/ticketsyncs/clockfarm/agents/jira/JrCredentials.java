@@ -20,7 +20,7 @@ public final class JrCredentials implements Credentials {
   }
 
   @Override
-  public URI domainURI() {
+  public URI uri() {
     return URI.create(this.project);
   }
 
@@ -32,5 +32,10 @@ public final class JrCredentials implements Credentials {
   @Override
   public String password() {
     return this.password;
+  }
+
+  @Override
+  public Object id() {
+    throw new UnsupportedOperationException("#id()");
   }
 }

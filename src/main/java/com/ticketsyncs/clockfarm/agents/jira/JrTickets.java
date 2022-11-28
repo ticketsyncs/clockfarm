@@ -17,7 +17,7 @@ public final class JrTickets implements Tickets<String> {
 
   public JrTickets(final Credentials creds) {
     this.client = new AsynchronousJiraRestClientFactory()
-        .createWithBasicHttpAuthentication(creds.domainURI(), creds.username(),
+        .createWithBasicHttpAuthentication(creds.uri(), creds.username(),
             creds.password()
         );
   }
