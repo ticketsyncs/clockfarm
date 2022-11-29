@@ -1,5 +1,6 @@
 package com.ticketsyncs.clockfarm.route;
 
+import com.ticketsyncs.clockfarm.security.spi.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,7 +20,7 @@ public class Routes {
   @Bean
   public RouterFunction<ServerResponse> auth2(final AuthService auth) {
     return RouterFunctions.route()
-        .POST("/login", request -> request.bodyToMono(AuthRequest.class)
+        .POST("/login", request -> request.bodyToMono(AuthReq.class)
             .flatMap(req -> ServerResponse.ok()
                 .body(auth.findByUsername(req.getUsername()), UserDetails.class)
             )

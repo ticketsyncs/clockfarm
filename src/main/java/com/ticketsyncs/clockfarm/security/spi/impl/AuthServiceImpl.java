@@ -1,7 +1,7 @@
-package com.ticketsyncs.clockfarm.route.impl;
+package com.ticketsyncs.clockfarm.security.spi.impl;
 
 import com.ticketsyncs.clockfarm.repository.UserRepository;
-import com.ticketsyncs.clockfarm.route.AuthService;
+import com.ticketsyncs.clockfarm.security.spi.AuthService;
 import java.util.Collections;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

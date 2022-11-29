@@ -1,4 +1,4 @@
-package com.ticketsyncs.clockfarm.route;
+package com.ticketsyncs.clockfarm.security.spi;
 
 import org.springframework.security.core.userdetails.ReactiveUserDetailsService;
 

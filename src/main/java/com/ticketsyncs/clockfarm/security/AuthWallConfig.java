@@ -1,6 +1,6 @@
 package com.ticketsyncs.clockfarm.security;
 
-import com.ticketsyncs.clockfarm.route.AuthService;
+import com.ticketsyncs.clockfarm.security.spi.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
