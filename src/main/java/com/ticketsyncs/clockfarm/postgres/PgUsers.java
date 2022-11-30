@@ -1,33 +1,45 @@
 package com.ticketsyncs.clockfarm.postgres;
 
-import com.ticketsyncs.clockfarm.model.User;
 import com.ticketsyncs.clockfarm.model.Users;
-import org.springframework.r2dbc.core.DatabaseClient;
+import com.ticketsyncs.clockfarm.repository.UserRepository;
+import com.ticketsyncs.clockfarm.route.RgReq;
+import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import reactor.core.publisher.Mono;
 
 /**
  * @author Aliaksei Bialiauski (abialiauski@solvd.com)
  * @since 1.0
  */
-public class PgUsers implements Users.Rc<Long> {
+@Service
+@Transactional(readOnly = true)
+@RequiredArgsConstructor
+public class PgUsers implements Users<Long, PgUser, RgReq> {
 
-  private final DatabaseClient db;
+  private final UserRepository repository;
+  private final PasswordEncoder encoder;
 
-  public PgUsers(final DatabaseClient db) {
-    this.db = db;
+  @Transactional
+  @Override
+  public Mono<Void> add(final RgReq req) {
+    final String encoded = this.encoder.encode(req.getPassword());
+    final PgUser user = PgUser.builder()
+        .username(req.getUsername())
+        .password(encoded)
+        .build();
+    return this.repository.add(user)
+        .then();
   }
 
   @Override
-  public User<Long> user(Long id) {
-    throw new UnsupportedOperationException("#user()");
+  public Mono<PgUser> user(final Long id) {
+    return this.repository.findById(id);
   }
 
   @Override
-  public User<Long> user(String name) {
-    throw new UnsupportedOperationException("#user()");
-  }
-
-  @Override
-  public void add(User<Long> user) {
-    throw new UnsupportedOperationException("#add()");
+  public Mono<PgUser> user(final String name) {
+    return this.repository.findByUsername(name);
   }
 }

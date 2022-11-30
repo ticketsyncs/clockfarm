@@ -6,27 +6,11 @@ import reactor.core.publisher.Mono;
  * @author Aliaksei Bialiauski (abialiauski@solvd.com)
  * @since 0.0.1
  */
-public interface Users<K> {
+public interface Users<K, T extends User<K>, R> {
 
-  User<K> user(K id);
+  Mono<Void> add(R req);
 
-  User<K> user(String name);
+  Mono<T> user(K id);
 
-  void add(User<K> user);
-
-  interface Rc<K> extends Users<K> {
-
-    default Mono<User<K>> rcUser(K id) {
-      return Mono.just(user(id));
-    }
-
-    default Mono<User<K>> rcUser(String name) {
-      return Mono.just(user(name));
-    }
-
-    default Mono<Void> rcAdd(User<K> user) {
-      add(user);
-      return Mono.just(user).then();
-    }
-  }
+  Mono<T> user(String name);
 }

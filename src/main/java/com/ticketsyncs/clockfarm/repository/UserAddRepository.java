@@ -1,4 +1,4 @@
-package com.ticketsyncs.clockfarm.route;
+package com.ticketsyncs.clockfarm.repository;
 
 import com.ticketsyncs.clockfarm.postgres.PgUser;
 import reactor.core.publisher.Mono;
@@ -7,7 +7,7 @@ import reactor.core.publisher.Mono;
  * @author Aliaksei Bialiauski (abialiauski@solvd.com)
  * @since 1.0
  */
-public interface UserService {
+public interface UserAddRepository {
 
-  Mono<PgUser> user(String username);
+  Mono<Void> add(PgUser user);
 }

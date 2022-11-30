@@ -1,12 +1,14 @@
 package com.ticketsyncs.clockfarm.model;
 
+import reactor.core.publisher.Mono;
+
 /**
  * @author Aliaksei Bialiauski (abialiauski@solvd.com)
  * @since 1.0
  */
-public interface CredentialsStorage<K> {
+public interface CredentialsStorage<K, T extends Credentials<K>> {
 
-  void add(Credentials<K> creds);
+  Mono<Void> add(T creds);
 
-  Credentials<K> credentials(K id);
+  Mono<T> credentials(K id);
 }

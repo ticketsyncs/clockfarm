@@ -2,8 +2,10 @@ package com.ticketsyncs.clockfarm.postgres;
 
 import com.ticketsyncs.clockfarm.model.User;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
 /**
@@ -13,15 +15,18 @@ import org.springframework.data.relational.core.mapping.Table;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Table(value = "user_account", schema = "ticket_syncs")
 public class PgUser implements User<Long> {
 
+  @Id
+  private Long id;
   private String username;
   private String password;
 
   @Override
   public Long id() {
-    throw new UnsupportedOperationException("#id()");
+    return this.id;
   }
 
   @Override
