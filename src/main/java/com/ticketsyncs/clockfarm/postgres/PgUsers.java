@@ -1,7 +1,7 @@
 package com.ticketsyncs.clockfarm.postgres;
 
 import com.ticketsyncs.clockfarm.model.Users;
-import com.ticketsyncs.clockfarm.repository.UserRepository;
+import com.ticketsyncs.clockfarm.postgres.repository.UserRepository;
 import com.ticketsyncs.clockfarm.route.RgReq;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;

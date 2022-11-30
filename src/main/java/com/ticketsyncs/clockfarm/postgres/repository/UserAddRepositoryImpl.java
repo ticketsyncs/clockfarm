@@ -1,4 +1,4 @@
-package com.ticketsyncs.clockfarm.repository;
+package com.ticketsyncs.clockfarm.postgres.repository;
 
 import com.ticketsyncs.clockfarm.postgres.PgUser;
 import lombok.RequiredArgsConstructor;

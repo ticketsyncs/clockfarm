@@ -1,6 +1,6 @@
 package com.ticketsyncs.clockfarm.security.spi.impl;
 
-import com.ticketsyncs.clockfarm.repository.UserRepository;
+import com.ticketsyncs.clockfarm.postgres.repository.UserRepository;
 import com.ticketsyncs.clockfarm.security.spi.AuthService;
 import java.util.Collections;
 import lombok.RequiredArgsConstructor;
