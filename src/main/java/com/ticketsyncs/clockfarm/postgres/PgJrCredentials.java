@@ -8,6 +8,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
@@ -29,6 +30,8 @@ public class PgJrCredentials implements Credentials, WithId<Long> {
   private String token;
   @Column("user_id")
   private Long userId;
+  @Transient
+  private String username;
 
   @Override
   public URI uri() {

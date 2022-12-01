@@ -1,5 +1,6 @@
 package com.ticketsyncs.clockfarm.route;
 
+import java.io.Serializable;
 import lombok.Value;
 
 /**
@@ -7,8 +8,10 @@ import lombok.Value;
  * @since 1.0
  */
 @Value
-public class RgReq {
+public class AddJrRq implements Serializable {
 
-  String username;
-  String password;
+  String email;
+  String domain;
+  String raw;
+  String principal;
 }
