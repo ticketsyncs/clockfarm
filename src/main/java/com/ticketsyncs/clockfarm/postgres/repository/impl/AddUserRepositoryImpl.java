@@ -1,6 +1,7 @@
-package com.ticketsyncs.clockfarm.postgres.repository;
+package com.ticketsyncs.clockfarm.postgres.repository.impl;
 
 import com.ticketsyncs.clockfarm.postgres.PgUser;
+import com.ticketsyncs.clockfarm.postgres.repository.UserAddRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.r2dbc.core.DatabaseClient;
 import org.springframework.stereotype.Repository;
@@ -12,7 +13,7 @@ import reactor.core.publisher.Mono;
  */
 @Repository
 @RequiredArgsConstructor
-public class UserAddRepositoryImpl implements UserAddRepository {
+public class AddUserRepositoryImpl implements UserAddRepository {
 
   private static final String SQL_SAVE_USER =
       "INSERT INTO ticket_syncs.user_account(username, password) VALUES (:username, :pass)";

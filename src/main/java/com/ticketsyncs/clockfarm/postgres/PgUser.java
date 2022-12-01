@@ -16,7 +16,7 @@ import org.springframework.data.relational.core.mapping.Table;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(value = "user_account", schema = "ticket_syncs")
+@Table(schema = "ticket_syncs", value = "user_account")
 public class PgUser implements User<Long> {
 
   @Id

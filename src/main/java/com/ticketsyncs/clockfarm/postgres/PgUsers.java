@@ -2,7 +2,7 @@ package com.ticketsyncs.clockfarm.postgres;
 
 import com.ticketsyncs.clockfarm.model.Users;
 import com.ticketsyncs.clockfarm.postgres.repository.UserRepository;
-import com.ticketsyncs.clockfarm.route.RgReq;
+import com.ticketsyncs.clockfarm.route.RgRq;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -16,21 +16,20 @@ import reactor.core.publisher.Mono;
 @Service
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
-public class PgUsers implements Users<Long, PgUser, RgReq> {
+public class PgUsers implements Users<Long, PgUser, RgRq> {
 
   private final UserRepository repository;
   private final PasswordEncoder encoder;
 
   @Transactional
   @Override
-  public Mono<Void> add(final RgReq req) {
+  public Mono<Void> add(final RgRq req) {
     final String encoded = this.encoder.encode(req.getPassword());
     final PgUser user = PgUser.builder()
         .username(req.getUsername())
         .password(encoded)
         .build();
-    return this.repository.add(user)
-        .then();
+    return this.repository.add(user);
   }
 
   @Override
