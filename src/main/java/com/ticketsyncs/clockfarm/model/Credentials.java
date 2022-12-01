@@ -6,7 +6,7 @@ import java.net.URI;
  * @author Aliaksei Bialiauski (abialiauski@solvd.com)
  * @since 1.0
  */
-public interface Credentials<K> extends WithId<K> {
+public interface Credentials {
 
   URI uri();
 
