@@ -7,7 +7,7 @@ import reactor.core.publisher.Mono;
  * @author Aliaksei Bialiauski (abialiauski@solvd.com)
  * @since 1.0
  */
-public interface UserAddRepository {
+public interface AddUserRepository {
 
   Mono<Void> add(PgUser user);
 }

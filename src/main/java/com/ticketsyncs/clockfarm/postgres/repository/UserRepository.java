@@ -8,7 +8,7 @@ import reactor.core.publisher.Mono;
  * @author Aliaksei Bialiauski (abialiauski@solvd.com)
  * @since 1.0
  */
-public interface UserRepository extends R2dbcRepository<PgUser, Long>, UserAddRepository {
+public interface UserRepository extends R2dbcRepository<PgUser, Long>, AddUserRepository {
 
   Mono<PgUser> findByUsername(String username);
 }
