@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 /**
@@ -16,7 +17,8 @@ import reactor.core.publisher.Mono;
 @Service
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
-public class PgJrCredentialsStorage implements CredentialsStorage<Long, PgJrCredentials, AddJrRq> {
+public class PgJrCredentialsStorage
+    implements CredentialsStorage<Long, PgJrCredentials, AddJrRq, ScReadPgJrCredentials> {
 
   private final JrCredentialsRepository repository;
   private final PasswordEncoder encoder;
@@ -32,6 +34,11 @@ public class PgJrCredentialsStorage implements CredentialsStorage<Long, PgJrCred
         .username(creds.getPrincipal())
         .build();
     return this.repository.add(credentials);
+  }
+
+  @Override
+  public Flux<ScReadPgJrCredentials> all(String username) {
+    throw new UnsupportedOperationException("#all()");
   }
 
   @Override

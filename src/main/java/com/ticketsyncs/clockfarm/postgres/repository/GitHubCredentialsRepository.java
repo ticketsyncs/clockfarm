@@ -9,5 +9,6 @@ import org.springframework.data.r2dbc.repository.R2dbcRepository;
  */
 public interface GitHubCredentialsRepository
     extends R2dbcRepository<PgGhCredentials, Long>,
-    AddGitHubCredentialsRepository {
+    AddGitHubCredentialsRepository,
+    FindAllByUsernameGhRepository {
 }
