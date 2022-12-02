@@ -5,13 +5,11 @@ import reactor.core.publisher.Mono;
 
 /**
  * @author Aliaksei Bialiauski (abialiauski@solvd.com)
- * @since 0.0.1
+ * @since 1.0
  */
-public interface Users<K, T extends User<K>, R extends Serializable> {
+public interface CredentialsStorage<K, T extends Credentials, R extends Serializable> {
 
-  Mono<Void> add(R req);
+  Mono<Void> add(R creds);
 
-  Mono<T> user(K id);
-
-  Mono<T> user(String name);
+  Mono<T> credentials(K id);
 }
