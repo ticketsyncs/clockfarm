@@ -21,7 +21,7 @@ public class AddGitHubCredentialsRepositoryImpl implements AddGitHubCredentialsR
   private final DatabaseClient db;
 
   @Override
-  public Mono<Void> add(PgGhCredentials creds) {
+  public Mono<Void> add(final PgGhCredentials creds) {
     return this.db.sql(SQL_SAVE_CREDENTIALS)
         .bind("url", creds.getUrl())
         .bind("token", creds.getToken())
