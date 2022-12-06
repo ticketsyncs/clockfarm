@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 /**
@@ -16,7 +17,8 @@ import reactor.core.publisher.Mono;
 @Service
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
-public class PgGhCredentialsStorage implements CredentialsStorage<Long, PgGhCredentials, AddGhRq> {
+public class PgGhCredentialsStorage
+    implements CredentialsStorage<Long, PgGhCredentials, AddGhRq, ScReadPgGhCredentials> {
 
   private final GitHubCredentialsRepository repository;
   private final PasswordEncoder encoder;
@@ -31,6 +33,18 @@ public class PgGhCredentialsStorage implements CredentialsStorage<Long, PgGhCred
         .username(creds.getPrincipal())
         .build();
     return this.repository.add(credentials);
+  }
+
+  @Override
+  public Flux<ScReadPgGhCredentials> all(final String username) {
+    return this.repository
+        .all(username)
+        .flatMap(
+            creds ->
+                Flux.just(
+                    new ScReadPgGhCredentials(creds.getUrl())
+                )
+        );
   }
 
   @Override

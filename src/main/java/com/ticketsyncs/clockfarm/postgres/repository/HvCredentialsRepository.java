@@ -9,5 +9,6 @@ import org.springframework.data.r2dbc.repository.R2dbcRepository;
  */
 public interface HvCredentialsRepository
     extends R2dbcRepository<PgHvCredentials, Long>,
-    AddHvCredentialsRepository {
+    AddHvCredentialsRepository,
+    FindAllByUsernameHvRepository {
 }
