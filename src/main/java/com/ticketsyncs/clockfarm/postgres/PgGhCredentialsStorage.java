@@ -37,11 +37,13 @@ public class PgGhCredentialsStorage
 
   @Override
   public Flux<ScReadPgGhCredentials> all(final String username) {
-    return this.repository.all(username)
+    return this.repository
+        .all(username)
         .flatMap(
-            creds -> Mono.just(
-                new ScReadPgGhCredentials(creds.getUrl())
-            )
+            creds ->
+                Flux.just(
+                    new ScReadPgGhCredentials(creds.getUrl())
+                )
         );
   }
 

@@ -37,8 +37,14 @@ public class PgJrCredentialsStorage
   }
 
   @Override
-  public Flux<ScReadPgJrCredentials> all(String username) {
-    throw new UnsupportedOperationException("#all()");
+  public Flux<ScReadPgJrCredentials> all(final String username) {
+    return this.repository.all(username)
+        .flatMap(
+            creds ->
+                Flux.just(
+                    new ScReadPgJrCredentials(creds.getEmail(), creds.getDomain())
+                )
+        );
   }
 
   @Override

@@ -9,5 +9,6 @@ import org.springframework.data.r2dbc.repository.R2dbcRepository;
  */
 public interface JrCredentialsRepository
     extends R2dbcRepository<PgJrCredentials, Long>,
-    AddJrCredentialsRepository {
+    AddJrCredentialsRepository,
+    FindAllByUsernameJrRepository {
 }

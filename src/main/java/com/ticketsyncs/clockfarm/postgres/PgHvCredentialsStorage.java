@@ -37,8 +37,15 @@ public class PgHvCredentialsStorage
   }
 
   @Override
-  public Flux<ScReadPgHvCredentials> all(String username) {
-    throw new UnsupportedOperationException("#all()");
+  public Flux<ScReadPgHvCredentials> all(final String username) {
+    return this.repository
+        .all(username)
+        .flatMap(
+            creds ->
+                Flux.just(
+                    new ScReadPgHvCredentials(creds.getLogin(), creds.getUrl())
+                )
+        );
   }
 
   @Override
