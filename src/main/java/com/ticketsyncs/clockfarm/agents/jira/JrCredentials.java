@@ -34,8 +34,8 @@ public final class JrCredentials implements Credentials {
     return this.password;
   }
 
-  @Override
-  public Object id() {
-    throw new UnsupportedOperationException("#id()");
-  }
+//  @Override
+//  public Object id() {
+//    throw new UnsupportedOperationException("#id()");
+//  }
 }
