@@ -8,7 +8,7 @@ import java.net.URI;
  */
 public interface Credentials {
 
-  URI domainURI();
+  URI uri();
 
   String username();
 
