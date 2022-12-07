@@ -28,8 +28,8 @@ public class PgJrCredentialsStorage
   public Mono<Void> add(final AddJrRq creds) {
     final String encoded = this.encoder.encode(creds.getRaw());
     final PgJrCredentials credentials = PgJrCredentials.builder()
-        .email(creds.getEmail())
-        .domain(creds.getDomain())
+        .email(creds.getUsername())
+        .domain(creds.getUrl())
         .token(encoded)
         .username(creds.getPrincipal())
         .build();

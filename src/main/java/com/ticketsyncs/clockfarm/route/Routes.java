@@ -13,10 +13,8 @@ import com.ticketsyncs.clockfarm.security.spi.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.reactive.function.server.HandlerFunction;
 import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.RouterFunctions;
-import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Mono;
 
@@ -28,88 +26,103 @@ import reactor.core.publisher.Mono;
 @RequiredArgsConstructor
 public class Routes {
 
+  private static final String TOKEN_USER_INFO =
+      "This is Yours JWT() token. Please include it into Authorization header to use the Ticketsyncs API";
+
   @Bean
   public RouterFunction<ServerResponse> auth(final AuthService auth) {
     return RouterFunctions.route()
-        .POST("/login", request -> request.bodyToMono(AuthRq.class)
-            .flatMap(req -> ServerResponse.ok()
-                .body(auth.findByUsername(req.getUsername())
-                        .flatMap(
-                            user -> Mono.just(new RsJwt(auth.token(user.getUsername()
-                                ),
-                                    "This is Yours JWT() token. Please include it into Authorization header to use the Ticketsyncs API"
+        .POST("/login", request ->
+            request.bodyToMono(AuthRq.class)
+                .flatMap(req -> ServerResponse.ok()
+                    .body(auth.findByUsername(req.getUsername())
+                            .flatMap(user ->
+                                Mono.just(new RsJwt(auth.token(user.getUsername()),
+                                        TOKEN_USER_INFO
+                                    )
                                 )
-                            )
-                        ),
-                    RsJwt.class
+                            ),
+                        RsJwt.class
+                    )
                 )
-            )
         )
         .build();
   }
-
-//  @Bean
-//  public RouterFunction<ServerResponse> me(
-//      final CredentialsStorage<Long, PgHvCredentials, AddHvRq> harvest,
-//      final CredentialsStorage<Long, PgJrCredentials, AddJrRq> jira,
-//      final CredentialsStorage<Long, PgGhCredentials, AddGhRq, > github) {
-//    return RouterFunctions.route()
-//        .GET("/me", request -> ServerResponse.ok()
-//            .body(new RsMe(
-//                    harvest.all("@principal"),
-//                    jira.all("@principal"),
-//                    github.all("@principal")
-//                ),
-//                RsMe.class
-//            )
-//        )
-//        .build();
-//  }
 
   @Bean
   public RouterFunction<ServerResponse> register(final Users<Long, PgUser, RgRq> users) {
     return RouterFunctions.route()
-        .POST("/register", request -> request.bodyToMono(RgRq.class)
-            .flatMap(req -> ServerResponse.ok()
-                .body(users.add(req), Void.class)
-            )
+        .POST("/register",
+            request ->
+                request.bodyToMono(RgRq.class)
+                    .flatMap(req ->
+                        ServerResponse.ok()
+                            .body(users.add(req), Void.class)
+                    )
+                    .switchIfEmpty(ServerResponse.badRequest().build())
         )
         .build();
   }
 
   @Bean
-  public RouterFunction<ServerResponse> gh() {
+  public RouterFunction<ServerResponse> jiraSync() {
     return RouterFunctions.route()
-        .POST("/add/gh", new HandlerFunction<ServerResponse>() {
-          @Override
-          public Mono<ServerResponse> handle(ServerRequest request) {
-            throw new UnsupportedOperationException("#handle()");
-          }
-        })
+        .POST("/harvest/jira/sync", null)
         .build();
   }
 
   @Bean
-  public RouterFunction<ServerResponse> jira() {
+  public RouterFunction<ServerResponse> ghSync() {
     return RouterFunctions.route()
-        .POST("/add/jira", new HandlerFunction<ServerResponse>() {
-          @Override
-          public Mono<ServerResponse> handle(ServerRequest request) {
-            throw new UnsupportedOperationException("#handle()");
-          }
-        })
+        .POST("/harvest/github/sync", null)
         .build();
   }
 
   @Bean
-  public RouterFunction<ServerResponse> harvest() {
+  public RouterFunction<ServerResponse> addGh(
+      final CredentialsStorage<Long, PgGhCredentials, AddGhRq, ScReadPgGhCredentials> github) {
     return RouterFunctions.route()
-        .POST("", new HandlerFunction<ServerResponse>() {
-          @Override
-          public Mono<ServerResponse> handle(ServerRequest request) {
-            throw new UnsupportedOperationException("#handle()");
-          }
-        })
+        .POST("/add/github",
+            request ->
+                request.bodyToMono(AddGhRq.class)
+                    .flatMap(rq ->
+                        ServerResponse.ok()
+                            .body(github.add(rq), Void.class)
+                    )
+                    .switchIfEmpty(ServerResponse.badRequest().build())
+        )
+        .build();
+  }
+
+  @Bean
+  public RouterFunction<ServerResponse> addJira(
+      final CredentialsStorage<Long, PgJrCredentials, AddJrRq, ScReadPgJrCredentials> jira) {
+    return RouterFunctions.route()
+        .POST("/add/jira",
+            request ->
+                request.bodyToMono(AddJrRq.class)
+                    .flatMap(rq ->
+                        ServerResponse.ok()
+                            .body(jira.add(rq), Void.class)
+                    )
+                    .switchIfEmpty(ServerResponse.badRequest().build())
+        )
+        .build();
+  }
+
+  @Bean
+  public RouterFunction<ServerResponse> addHarvest(
+      final CredentialsStorage<Long, PgHvCredentials, AddHvRq, ScReadPgHvCredentials> harvest) {
+    return RouterFunctions.route()
+        .POST("/add/harvest",
+            request ->
+                request.bodyToMono(AddHvRq.class)
+                    .flatMap(rq ->
+                        ServerResponse.ok()
+                            .body(harvest.add(rq), Void.class)
+                    )
+                    .switchIfEmpty(ServerResponse.badRequest().build())
+        )
         .build();
   }
 
@@ -117,11 +130,12 @@ public class Routes {
   public RouterFunction<ServerResponse> meGh(
       final CredentialsStorage<Long, PgGhCredentials, AddGhRq, ScReadPgGhCredentials> ghs) {
     return RouterFunctions.route()
-        .GET("/me/github", request -> ServerResponse.ok()
-            .body(
-                ghs.all("test"),
-                ScReadPgGhCredentials.class
-            )
+        .GET("/me/github", request ->
+            ServerResponse.ok().body(
+                    ghs.all("test"),
+                    ScReadPgGhCredentials.class
+                )
+                .switchIfEmpty(ServerResponse.notFound().build())
         )
         .build();
   }
@@ -130,11 +144,12 @@ public class Routes {
   public RouterFunction<ServerResponse> meJira(
       final CredentialsStorage<Long, PgJrCredentials, AddJrRq, ScReadPgJrCredentials> jira) {
     return RouterFunctions.route()
-        .GET("/me/jira", request -> ServerResponse.ok()
-            .body(
-                jira.all("test"),
-                ScReadPgJrCredentials.class
-            )
+        .GET("/me/jira", request ->
+            ServerResponse.ok().body(
+                    jira.all("test"),
+                    ScReadPgJrCredentials.class
+                )
+                .switchIfEmpty(ServerResponse.notFound().build())
         )
         .build();
   }
@@ -143,11 +158,12 @@ public class Routes {
   public RouterFunction<ServerResponse> meHarvest(
       final CredentialsStorage<Long, PgHvCredentials, AddHvRq, ScReadPgHvCredentials> harvest) {
     return RouterFunctions.route()
-        .GET("/me/harvest", request -> ServerResponse.ok()
-            .body(
-                harvest.all("test"),
-                ScReadPgHvCredentials.class
-            )
+        .GET("/me/harvest", request ->
+            ServerResponse.ok().body(
+                    harvest.all("test"),
+                    ScReadPgHvCredentials.class
+                )
+                .switchIfEmpty(ServerResponse.notFound().build())
         )
         .build();
   }
