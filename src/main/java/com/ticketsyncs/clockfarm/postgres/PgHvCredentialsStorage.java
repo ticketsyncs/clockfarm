@@ -28,7 +28,7 @@ public class PgHvCredentialsStorage
   public Mono<Void> add(final AddHvRq creds) {
     final String encoded = this.encoder.encode(creds.getRaw());
     final PgHvCredentials credentials = PgHvCredentials.builder()
-        .login(creds.getLogin())
+        .login(creds.getUsername())
         .url(creds.getUrl())
         .password(encoded)
         .username(creds.getPrincipal())

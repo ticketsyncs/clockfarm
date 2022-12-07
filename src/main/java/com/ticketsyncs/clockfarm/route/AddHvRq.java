@@ -10,7 +10,7 @@ import lombok.Value;
 @Value
 public class AddHvRq implements Serializable {
 
-  String login;
+  String username;
   String url;
   String raw;
   String principal;

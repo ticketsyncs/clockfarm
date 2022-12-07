@@ -10,8 +10,8 @@ import lombok.Value;
 @Value
 public class AddJrRq implements Serializable {
 
-  String email;
-  String domain;
+  String username;
+  String url;
   String raw;
   String principal;
 }
