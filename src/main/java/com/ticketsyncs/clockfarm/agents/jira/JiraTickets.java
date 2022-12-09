@@ -11,11 +11,11 @@ import java.util.concurrent.ExecutionException;
  * @author Aliaksei Bialiauski (abialiauski@solvd.com)
  * @since 1.0
  */
-public final class JrTickets implements Tickets<String> {
+public final class JiraTickets implements Tickets<String> {
 
   private final JiraRestClient client;
 
-  public JrTickets(final Credentials creds) {
+  public JiraTickets(final Credentials creds) {
     this.client = new AsynchronousJiraRestClientFactory()
         .createWithBasicHttpAuthentication(creds.uri(), creds.username(),
             creds.password()
@@ -25,7 +25,7 @@ public final class JrTickets implements Tickets<String> {
   @Override
   public Ticket ticket(final String id) {
     try {
-      return new JrTicket(this.client.getIssueClient().getIssue(id).get());
+      return new JiraTicket(this.client.getIssueClient().getIssue(id).get());
     } catch (final InterruptedException | ExecutionException e) {
       throw new IllegalStateException(e);
     }

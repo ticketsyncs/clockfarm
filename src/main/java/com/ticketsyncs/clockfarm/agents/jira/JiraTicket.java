@@ -8,13 +8,13 @@ import java.util.Objects;
  * @author Aliaksei Bialiauski (abialiauski@solvd.com)
  * @since 1.0
  */
-public final class JrTicket implements Ticket {
+public final class JiraTicket implements Ticket {
 
   private final String id;
   private final Double spent;
   private final Issue issue;
 
-  public JrTicket(final Issue issue) {
+  public JiraTicket(final Issue issue) {
     this.issue = issue;
     this.id = issue.getKey();
     this.spent = this.hours(Objects.requireNonNull(issue.getTimeTracking())

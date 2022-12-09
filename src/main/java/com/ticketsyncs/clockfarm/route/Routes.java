@@ -10,6 +10,7 @@ import com.ticketsyncs.clockfarm.postgres.ScReadPgGhCredentials;
 import com.ticketsyncs.clockfarm.postgres.ScReadPgHvCredentials;
 import com.ticketsyncs.clockfarm.postgres.ScReadPgJrCredentials;
 import com.ticketsyncs.clockfarm.security.spi.AuthService;
+import java.util.function.Function;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -67,7 +68,14 @@ public class Routes {
   @Bean
   public RouterFunction<ServerResponse> jiraSync() {
     return RouterFunctions.route()
-        .POST("/harvest/jira/sync", null)
+        .POST("/harvest/jira/sync", req ->
+            req.bodyToMono(JiraSyncRq.class)
+                .flatMap(new Function<JiraSyncRq, Mono<? extends ServerResponse>>() {
+                  @Override
+                  public Mono<? extends ServerResponse> apply(JiraSyncRq jiraSyncRq) {
+                    throw new UnsupportedOperationException("#apply()");
+                  }
+                }))
         .build();
   }
 
