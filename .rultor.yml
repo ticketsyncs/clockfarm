@@ -1,5 +1,11 @@
 architect:
   - h1alexbel
 merge:
-  script:
-    - "mvn clean install"
+  script: |-
+    export PG_HOST=localhost
+    export PG_USERNAME=user
+    export PG_PASSWORD=password
+    export PACKAGE_LOG_LEVEL=INFO
+    export R2DBC_LOG_LEVEL=INFO
+    export WEB_LOG_LEVEL=INFO
+    mvn clean install
