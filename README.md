@@ -1,7 +1,5 @@
 <img alt="Alarm logo" src="alarm.svg" width="92px"/>
 
-Clockfarm is Core Engine of Ticketsyncs, here we synchronize ticket systems like [```Jira```](https://www.atlassian.com/software/jira) and [```Harvest```](https://www.getharvest.com), the time tracking app.
-
 [![EO principles respected here](https://www.elegantobjects.org/badge.svg)](https://www.elegantobjects.org)
 [![DevOps By Rultor.com](https://www.rultor.com/b/yegor256/rultor)](https://www.rultor.com/p/yegor256/rultor)
 [![We recommend IntelliJ IDEA](https://www.elegantobjects.org/intellij-idea.svg)](https://www.jetbrains.com/idea/)
@@ -11,6 +9,8 @@ Clockfarm is Core Engine of Ticketsyncs, here we synchronize ticket systems like
 [![Docker](https://img.shields.io/docker/v/abialiauski/ticketsyncs-clockfarm/latest)](https://hub.docker.com/repository/docker/abialiauski/ticketsyncs-clockfarm/general)
 [![Hits-of-Code](https://hitsofcode.com/github/h1alexbel/ticket-harvest-sync)](https://hitsofcode.com/view/github/h1alexbel/ticket-harvest-sync)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/ticketsyncs/clockfarm/blob/master/LICENSE)
+
+Clockfarm is Core Engine of Ticketsyncs, here we synchronize ticket systems like [```Jira```](https://www.atlassian.com/software/jira) and [```Harvest```](https://www.getharvest.com), the time tracking app.
 
 # Prerequisites
 
