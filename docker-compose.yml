@@ -1,15 +1,33 @@
 version: '3.8'
 services:
-  db:
+  postgres:
     image: postgres:14.6-alpine
     restart: always
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=pass
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
     ports:
       - '5432:5432'
+    networks:
+      - clockfarm
     volumes:
-      - db:/var/lib/postgresql/data
+      - postgres:/var/lib/postgresql/data
+  clockfarm:
+    env_file:
+      - dev.env
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: clockfarm:latest
+    ports:
+      - "8080:8080"
+    networks:
+      - clockfarm
+    depends_on:
+      - postgres
 volumes:
-  db:
+  postgres:
     driver: local
+networks:
+  clockfarm:
+    driver: bridge
