@@ -1,6 +1,6 @@
 <img alt="Alarm logo" src="alarm.svg" width="92px"/>
 
-Datum is highly performant data layer for org.releases GitHub bot
+Clockfarm is Core Engine of Ticketsyncs, here we synchronize ticket systems like [```Jira```](https://www.atlassian.com/software/jira) and [```Harvest```](https://www.getharvest.com), the time tracking app.
 
 [![EO principles respected here](https://www.elegantobjects.org/badge.svg)](https://www.elegantobjects.org)
 [![DevOps By Rultor.com](https://www.rultor.com/b/yegor256/rultor)](https://www.rultor.com/p/yegor256/rultor)
