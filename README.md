@@ -27,5 +27,5 @@ $ sh up.sh
 
 # Want to contribute?
 
-Don't be shy. Just submit an [issue](https://github.com/h1alexbel/datum/issues) or open
-a [pull request](https://github.com/h1alexbel/datum/pulls).
+Don't be shy. Just submit an [issue](https://github.com/ticketsyncs/clockfarm/issues) or open
+a [pull request](https://github.com/ticketsyncs/clockfarm/pulls).
