@@ -2,25 +2,21 @@ spring:
   application:
     name: ticketsyncs
   liquibase:
-    url: jdbc:postgresql://localhost:5432/postgres
-    user: postgres
-    password: pass
+    url: jdbc:postgresql://${PG_HOST}:5432/postgres
+    user: ${PG_USERNAME}
+    password: ${PG_PASSWORD}
   r2dbc:
-    url: r2dbc:postgresql://localhost:5432/postgres
-    # REPLACE WITH ${DB_URL}
-    username: postgres
-    # REPLACE WITH ${DB_USERNAME}
-    password: pass
-    # REPLACE WITH ${DB_PASSWORD}
+    url: r2dbc:postgresql://${PG_HOST}:5432/postgres
+    username: ${PG_USERNAME}
+    password: ${PG_PASSWORD}
 server:
   shutdown: graceful
-  port: 8081
-#  REPLACE WITH ${PORT}
 logging:
   level:
     root: INFO
-    web: DEBUG
-    org.springframework.r2dbc: DEBUG
+    com.ticketsyncs.clockfarm: ${PACKAGE_LOG_LEVEL}
+    web: ${WEB_LOG_LEVEL}
+    org.springframework.r2dbc: ${R2DBC_LOG_LEVEL}
   file:
     path: /
     name: ticketsyncs.log
