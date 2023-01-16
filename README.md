@@ -5,8 +5,12 @@
 [![We recommend IntelliJ IDEA](https://www.elegantobjects.org/intellij-idea.svg)](https://www.jetbrains.com/idea/)
 
 
+[![Terraform](https://github.com/ticketsyncs/clockfarm/actions/workflows/terraform.yml/badge.svg)](https://github.com/ticketsyncs/clockfarm/actions/workflows/terraform.yml)
 [![Java CI with Maven](https://github.com/ticketsyncs/clockfarm/actions/workflows/maven.yml/badge.svg)](https://github.com/ticketsyncs/clockfarm/actions/workflows/maven.yml)
+[![codecov](https://codecov.io/github/ticketsyncs/clockfarm/branch/master/graph/badge.svg?token=H0DGTD88KX)](https://codecov.io/github/ticketsyncs/clockfarm)
 [![Docker](https://img.shields.io/docker/v/abialiauski/ticketsyncs-clockfarm/latest)](https://hub.docker.com/repository/docker/abialiauski/ticketsyncs-clockfarm/general)
+<br>
+
 [![Hits-of-Code](https://hitsofcode.com/github/h1alexbel/ticket-harvest-sync)](https://hitsofcode.com/view/github/h1alexbel/ticket-harvest-sync)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/ticketsyncs/clockfarm/blob/master/LICENSE)
 
