@@ -1,14 +1,9 @@
 spring:
   application:
     name: ticketsyncs
-  liquibase:
-    url: jdbc:postgresql://${PG_HOST}:5432/postgres
-    user: ${PG_USERNAME}
-    password: ${PG_PASSWORD}
-  r2dbc:
-    url: r2dbc:postgresql://${PG_HOST}:5432/postgres
-    username: ${PG_USERNAME}
-    password: ${PG_PASSWORD}
+dynamodb:
+  access: ${AWS_ACCESS_KEY}
+  secret: ${AWS_SECRET_KEY}
 server:
   shutdown: graceful
 logging:
@@ -16,7 +11,6 @@ logging:
     root: INFO
     com.ticketsyncs.clockfarm: ${PACKAGE_LOG_LEVEL}
     web: ${WEB_LOG_LEVEL}
-    org.springframework.r2dbc: ${R2DBC_LOG_LEVEL}
   file:
     path: /
     name: ticketsyncs.log
