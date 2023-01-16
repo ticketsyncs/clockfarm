@@ -4,7 +4,7 @@ on:
     branches: [ master ]
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
       - name: Set up JDK 17
@@ -21,4 +21,4 @@ jobs:
           export PACKAGE_LOG_LEVEL=INFO
           export R2DBC_LOG_LEVEL=INFO
           export WEB_LOG_LEVEL=INFO
-          mvn clean test
+          mvn clean install
