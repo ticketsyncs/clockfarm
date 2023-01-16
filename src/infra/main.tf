@@ -5,10 +5,6 @@ terraform {
     region = "us-east-1"
   }
   required_providers {
-    github = {
-      source  = "integrations/github"
-      version = "~> 4.0"
-    }
     heroku = {
       source  = "heroku/heroku"
       version = "5.1.10"
