@@ -30,11 +30,19 @@ import java.net.URI;
  * Account.
  *
  * @author Aliaksei Bialiauski (abialiauski@solvd.com)
- * @since 1.0
+ * @since 0.0.1
  */
 public interface Account {
 
+  /**
+   * Address of account.
+   *
+   * @return URI of account address
+   */
   URI address();
 
-  // db-based ops
+  /**
+   * Deletes himself.
+   */
+  void delete();
 }
