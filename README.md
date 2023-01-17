@@ -21,9 +21,6 @@ You need to have [```Docker```](https://www.docker.com), ```Java 17+```, and ```
 
 # Quick Start
 
-Run this script to start these containers: clockfarm application
-and [PostgreSQL](https://www.postgresql.org)
-
 ```shell
 $ sh up.sh
 ```
