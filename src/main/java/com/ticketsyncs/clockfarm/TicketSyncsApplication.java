@@ -27,6 +27,12 @@ package com.ticketsyncs.clockfarm;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * Entrance.
+ *
+ * @author Aliaksei Bialiauski (abialiauski@solvd.com)
+ * @since 0.0.1
+ */
 @SpringBootApplication
 public class TicketSyncsApplication {
 

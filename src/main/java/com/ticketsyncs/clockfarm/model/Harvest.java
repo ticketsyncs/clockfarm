@@ -25,32 +25,17 @@ SOFTWARE.
 package com.ticketsyncs.clockfarm.model;
 
 /**
- * Users.
+ * Harvest.
  *
  * @author Aliaksei Bialiauski (abialiauski@solvd.com)
  * @since 0.0.1
  */
-public interface Users {
+public interface Harvest {
 
   /**
-   * Add new user.
+   * Accounts.
    *
-   * @param user new User to add
+   * @return Accounts
    */
-  void add(User user);
-
-  /**
-   * Find user by id.
-   *
-   * @param id User ID
-   * @return User found
-   */
-  User user(Long id);
-
-  /**
-   * Iterate them all.
-   *
-   * @return All users found
-   */
-  Iterable<User> iterate();
+  Accounts accounts();
 }
