@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
-    bucket = "aliaksei-bialiauski-ticketsyncs-clockfarm-tfstate"
-    key    = "dev/terraform.tfstate"
+    bucket = "aliaksei-bialiauski-env-tfstate"
+    key = "ticketsyncs-clockfarm/terraform.tfstate"
     region = "us-east-1"
   }
   required_providers {
