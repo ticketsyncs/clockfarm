@@ -24,8 +24,9 @@ SOFTWARE.
 
 /**
  * Ticket Syncs.
+ *
  * @author Aliaksei Bialiauski (abialiauski@solvd.com)
- * @since 1.0
+ * @since 0.0.1
  */
 
 package com.ticketsyncs.clockfarm;
