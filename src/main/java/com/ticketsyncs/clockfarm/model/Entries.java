@@ -25,32 +25,33 @@ SOFTWARE.
 package com.ticketsyncs.clockfarm.model;
 
 /**
- * Users.
+ * Entries.
  *
  * @author Aliaksei Bialiauski (abialiauski@solvd.com)
  * @since 0.0.1
  */
-public interface Users {
+public interface Entries {
 
   /**
-   * Add new user.
+   * Find entry by id.
    *
-   * @param user new User to add
+   * @param id Entry ID
+   * @return Entry found
    */
-  void add(User user);
-
-  /**
-   * Find user by id.
-   *
-   * @param id User ID
-   * @return User found
-   */
-  User user(Long id);
+  Entry entry(String id);
 
   /**
    * Iterate them all.
    *
-   * @return All users found
+   * @return All entries found
    */
-  Iterable<User> iterate();
+  Iterable<Entry> iterate();
+
+  /**
+   * Iterate entries, that match the project.
+   *
+   * @param project Entry project
+   * @return All entries found
+   */
+  Iterable<Entry> iterate(String project);
 }

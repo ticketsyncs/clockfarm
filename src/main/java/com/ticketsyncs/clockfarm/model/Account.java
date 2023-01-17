@@ -24,33 +24,25 @@ SOFTWARE.
 
 package com.ticketsyncs.clockfarm.model;
 
+import java.net.URI;
+
 /**
- * Users.
+ * Account.
  *
  * @author Aliaksei Bialiauski (abialiauski@solvd.com)
  * @since 0.0.1
  */
-public interface Users {
+public interface Account {
 
   /**
-   * Add new user.
+   * Address of account.
    *
-   * @param user new User to add
+   * @return URI of account address
    */
-  void add(User user);
+  URI address();
 
   /**
-   * Find user by id.
-   *
-   * @param id User ID
-   * @return User found
+   * Deletes himself.
    */
-  User user(Long id);
-
-  /**
-   * Iterate them all.
-   *
-   * @return All users found
-   */
-  Iterable<User> iterate();
+  void delete();
 }
