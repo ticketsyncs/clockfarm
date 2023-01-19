@@ -22,33 +22,47 @@
 
 package com.ticketsyncs.clockfarm.model;
 
+import lombok.RequiredArgsConstructor;
+
 /**
- * Users.
+ * Credentials.
  *
  * @author Aliaksei Bialiauski (abialiauski@solvd.com)
  * @since 0.0.1
  */
-public interface Users {
+public interface Credentials {
 
   /**
-   * Add new user.
+   * Username.
    *
-   * @param user new User to add
+   * @return username
    */
-  void add(User user);
+  String username();
 
   /**
-   * Find user by id.
+   * Password.
    *
-   * @param id User ID
-   * @return User found
+   * @return password
    */
-  User user(Long id);
+  String password();
 
   /**
-   * Iterate them all.
-   *
-   * @return All users found
+   * Simple Credentials.
    */
-  Iterable<User> iterate();
+  @RequiredArgsConstructor
+  final class Simple implements Credentials {
+
+    private final String username;
+    private final String password;
+
+    @Override
+    public String username() {
+      return this.username;
+    }
+
+    @Override
+    public String password() {
+      return this.password;
+    }
+  }
 }

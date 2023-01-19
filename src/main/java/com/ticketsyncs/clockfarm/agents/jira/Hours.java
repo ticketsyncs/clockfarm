@@ -20,35 +20,20 @@
  * SOFTWARE.
  */
 
-package com.ticketsyncs.clockfarm.model;
+package com.ticketsyncs.clockfarm.agents.jira;
 
 /**
- * Users.
+ * Hours.
  *
  * @author Aliaksei Bialiauski (abialiauski@solvd.com)
  * @since 0.0.1
  */
-public interface Users {
+public interface Hours {
 
   /**
-   * Add new user.
+   * Time.
    *
-   * @param user new User to add
+   * @return time in h.mm format
    */
-  void add(User user);
-
-  /**
-   * Find user by id.
-   *
-   * @param id User ID
-   * @return User found
-   */
-  User user(Long id);
-
-  /**
-   * Iterate them all.
-   *
-   * @return All users found
-   */
-  Iterable<User> iterate();
+  Double formatted();
 }

@@ -20,35 +20,38 @@
  * SOFTWARE.
  */
 
-package com.ticketsyncs.clockfarm.model;
+package com.ticketsyncs.clockfarm.agents.jira;
+
+import com.ticketsyncs.clockfarm.model.Entry;
+import lombok.RequiredArgsConstructor;
 
 /**
- * Users.
+ * Jira entry or ticket.
  *
  * @author Aliaksei Bialiauski (abialiauski@solvd.com)
  * @since 0.0.1
  */
-public interface Users {
+@RequiredArgsConstructor
+public final class JrEntry implements Entry {
 
-  /**
-   * Add new user.
-   *
-   * @param user new User to add
-   */
-  void add(User user);
+  private final String id;
+  private final String project;
+  private final String body;
+  private final Integer minutes;
 
-  /**
-   * Find user by id.
-   *
-   * @param id User ID
-   * @return User found
-   */
-  User user(Long id);
+  @Override
+  public Double spentTime() {
+    return new HoursOf(this.minutes)
+      .formatted();
+  }
 
-  /**
-   * Iterate them all.
-   *
-   * @return All users found
-   */
-  Iterable<User> iterate();
+  @Override
+  public String project() {
+    return this.project;
+  }
+
+  @Override
+  public String toString() {
+    return String.format("id: %s, text: %s", this.id, this.body);
+  }
 }

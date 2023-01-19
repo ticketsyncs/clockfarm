@@ -20,35 +20,26 @@
  * SOFTWARE.
  */
 
-package com.ticketsyncs.clockfarm.model;
+package com.ticketsyncs.clockfarm.agents.jira;
+
+import lombok.RequiredArgsConstructor;
 
 /**
- * Users.
+ * Hours of minutes
  *
  * @author Aliaksei Bialiauski (abialiauski@solvd.com)
  * @since 0.0.1
  */
-public interface Users {
+@RequiredArgsConstructor
+public class HoursOf implements Hours {
 
   /**
-   * Add new user.
-   *
-   * @param user new User to add
+   * Minutes.
    */
-  void add(User user);
+  private final Integer minutes;
 
-  /**
-   * Find user by id.
-   *
-   * @param id User ID
-   * @return User found
-   */
-  User user(Long id);
-
-  /**
-   * Iterate them all.
-   *
-   * @return All users found
-   */
-  Iterable<User> iterate();
+  @Override
+  public Double formatted() {
+    throw new UnsupportedOperationException("#formatted()");
+  }
 }
