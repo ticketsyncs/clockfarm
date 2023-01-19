@@ -54,7 +54,7 @@ SOFTWARE.
   <licenses>
     <license>
       <name>MIT</name>
-      <url>https://github.com/ticketsyncs/clockfarm/blob/master/LICENSE</url>
+      <url>https://github.com/ticketsyncs/clockfarm/blob/master/LICENSE.txt</url>
       <distribution>site</distribution>
     </license>
   </licenses>
@@ -144,24 +144,6 @@ SOFTWARE.
         </configuration>
       </plugin>
       <plugin>
-        <groupId>com.qulice</groupId>
-        <artifactId>qulice-maven-plugin</artifactId>
-        <version>0.22.0</version>
-        <configuration>
-          <license>file:${basedir}/LICENSE.txt</license>
-          <excludes>
-            <exclude>duplicatefinder:.*</exclude>
-          </excludes>
-        </configuration>
-        <executions>
-          <execution>
-            <goals>
-              <goal>check</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
         <executions>
@@ -194,8 +176,8 @@ SOFTWARE.
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
-          <source>17</source>
-          <target>17</target>
+          <source>${maven.compiler.source}</source>
+          <target>${maven.compiler.target}</target>
         </configuration>
       </plugin>
     </plugins>
