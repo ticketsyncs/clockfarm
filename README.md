@@ -25,7 +25,12 @@ You need to have [```Docker```](https://www.docker.com), ```Java 17+```, and ```
 $ sh up.sh
 ```
 
-# Want to contribute?
+# How to contribute
+Fork repository, make changes, send us a [pull request](https://www.yegor256.com/2014/04/15/github-guidelines.html).
+We will review your changes and apply them to the `master` branch shortly,
+provided they don't violate our quality standards. To avoid frustration,
+before sending us your pull request please run full Maven build:
 
-Don't be shy. Just submit an [issue](https://github.com/ticketsyncs/clockfarm/issues) or open
-a [pull request](https://github.com/ticketsyncs/clockfarm/pulls).
+```bash
+$ mvn clean install -Pqulice
+```
