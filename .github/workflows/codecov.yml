@@ -19,7 +19,11 @@ jobs:
           key: maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             maven-
-      - run: mvn clean install
+      - run: |
+          export PACKAGE_LOG_LEVEL=INFO
+          export R2DBC_LOG_LEVEL=INFO
+          export WEB_LOG_LEVEL=INFO
+          mvn clean install
       - uses: codecov/codecov-action@v3
         with:
           files: ./target/site/jacoco/jacoco.xml
