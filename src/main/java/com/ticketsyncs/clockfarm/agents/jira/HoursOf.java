@@ -31,7 +31,7 @@ import lombok.RequiredArgsConstructor;
  * @since 0.0.1
  */
 @RequiredArgsConstructor
-public class HoursOf implements Hours {
+public final class HoursOf implements Hours {
 
   /**
    * Minutes.
@@ -40,6 +40,8 @@ public class HoursOf implements Hours {
 
   @Override
   public Double formatted() {
-    throw new UnsupportedOperationException("#formatted()");
+    final int hours = this.minutes / 60;
+    final int mins = this.minutes - hours * 60;
+    return Double.valueOf(hours + mins * 0.01);
   }
 }
