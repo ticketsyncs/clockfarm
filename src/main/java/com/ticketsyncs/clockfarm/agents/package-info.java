@@ -20,38 +20,11 @@
  * SOFTWARE.
  */
 
-package com.ticketsyncs.clockfarm.agents.jira;
-
-import com.ticketsyncs.clockfarm.model.Entry;
-import lombok.RequiredArgsConstructor;
-
 /**
- * Jira entry or ticket.
+ * Agents.
  *
  * @author Aliaksei Bialiauski (abialiauski@solvd.com)
  * @since 0.0.1
  */
-@RequiredArgsConstructor
-public final class JrEntry implements Entry {
 
-  private final String id;
-  private final String project;
-  private final String body;
-  private final Integer minutes;
-
-  @Override
-  public Double spentTime() {
-    return new HoursOf(this.minutes)
-      .formatted();
-  }
-
-  @Override
-  public String project() {
-    return this.project;
-  }
-
-  @Override
-  public String toString() {
-    return String.format("ticket: %s, text: %s", this.id, this.body);
-  }
-}
+package com.ticketsyncs.clockfarm.agents;
