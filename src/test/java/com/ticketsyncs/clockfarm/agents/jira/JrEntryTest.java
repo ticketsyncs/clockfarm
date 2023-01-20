@@ -44,6 +44,6 @@ class JrEntryTest {
       90
     );
     Assertions.assertThat(entry.toString())
-      .isEqualTo(String.format("id: %s, text: %s", id, body));
+      .isEqualTo(String.format("ticket: %s, text: %s", id, body));
   }
 }
