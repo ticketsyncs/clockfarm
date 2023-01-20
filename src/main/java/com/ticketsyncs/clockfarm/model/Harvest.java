@@ -22,6 +22,9 @@
 
 package com.ticketsyncs.clockfarm.model;
 
+import java.time.LocalDate;
+import lombok.RequiredArgsConstructor;
+
 /**
  * Harvest.
  *
@@ -29,4 +32,30 @@ package com.ticketsyncs.clockfarm.model;
  * @since 0.0.1
  */
 public interface Harvest {
+
+  /**
+   * Put info.
+   *
+   * @param info text note
+   */
+  void put(String info);
+
+  @RequiredArgsConstructor
+  final class Daily implements Harvest {
+
+    private final String project;
+    private final String activity;
+    private final LocalDate date;
+    private final Entry entry;
+
+    @Override
+    public void put(final String info) {
+      // project
+      // activity
+      // date
+      // entry.toString()
+      // entry.spentTime()
+      // logic to put info into real harvest
+    }
+  }
 }
