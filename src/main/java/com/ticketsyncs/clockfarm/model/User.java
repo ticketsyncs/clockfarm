@@ -28,6 +28,7 @@ package com.ticketsyncs.clockfarm.model;
  * @author Aliaksei Bialiauski (abialiauski@solvd.com)
  * @since 1.0
  */
+// @todo #2:30min define user vs account interaction
 public interface User {
 
   /**
