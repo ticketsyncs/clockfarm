@@ -4,7 +4,7 @@
 [![DevOps By Rultor.com](https://www.rultor.com/b/yegor256/rultor)](https://www.rultor.com/p/yegor256/rultor)
 [![We recommend IntelliJ IDEA](https://www.elegantobjects.org/intellij-idea.svg)](https://www.jetbrains.com/idea/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/ticketsyncs/clockfarm/blob/master/LICENSE)
-
+[![PDD status](http://www.0pdd.com/svg?name=h1alexbel/mbook)](http://www.0pdd.com/p?name=h1alexbel/mbook)
 
 [![Terraform](https://github.com/ticketsyncs/clockfarm/actions/workflows/terraform.yml/badge.svg)](https://github.com/ticketsyncs/clockfarm/actions/workflows/terraform.yml)
 [![Java CI with Maven](https://github.com/ticketsyncs/clockfarm/actions/workflows/maven.yml/badge.svg)](https://github.com/ticketsyncs/clockfarm/actions/workflows/maven.yml)
