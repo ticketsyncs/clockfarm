@@ -48,14 +48,9 @@ public interface Harvest {
     private final LocalDate date;
     private final Entry entry;
 
+    // @todo #1:90min implement put logic into real harvest
     @Override
     public void put(final String info) {
-      // project
-      // activity
-      // date
-      // entry.toString()
-      // entry.spentTime()
-      // logic to put info into real harvest
     }
   }
 }
