@@ -10,7 +10,7 @@
 [![Java CI with Maven](https://github.com/ticketsyncs/clockfarm/actions/workflows/maven.yml/badge.svg)](https://github.com/ticketsyncs/clockfarm/actions/workflows/maven.yml)
 [![codecov](https://codecov.io/github/ticketsyncs/clockfarm/branch/master/graph/badge.svg?token=H0DGTD88KX)](https://codecov.io/github/ticketsyncs/clockfarm)
 [![Docker](https://img.shields.io/docker/v/abialiauski/ticketsyncs-clockfarm/latest)](https://hub.docker.com/repository/docker/abialiauski/ticketsyncs-clockfarm/general)
-[![Hits-of-Code](https://hitsofcode.com/github/h1alexbel/ticket-harvest-sync)](https://hitsofcode.com/view/github/h1alexbel/ticket-harvest-sync)
+[![Hits-of-Code](https://hitsofcode.com/github/ticketsyncs/clockfarm)](https://hitsofcode.com/view/github/ticketsyncs/clockfarm)
 
 
 Clockfarm is Core Engine of Ticketsyncs, here we synchronize ticket systems like [```Jira```](https://www.atlassian.com/software/jira) and [```Harvest```](https://www.getharvest.com), the time tracking app.
